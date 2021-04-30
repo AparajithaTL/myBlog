@@ -92,8 +92,10 @@ section
 }
 h3
 {
-color: darkgoldenrod;
-font-family:  fantasy;    
+color:darkorange;
+font-size: 22px;
+font-family:monospace;
+text-shadow: 1px 1px #FFFACD;    
 }
 
 #places a
@@ -102,6 +104,6 @@ font-family:  fantasy;
     text-shadow: none !important;
     text-decoration: underline !important;
     color: darkmagenta !important;
-    font-size: 20px;
+    font-size: 23px;
     text-shadow: 2px 2px gainsboro;
 }
