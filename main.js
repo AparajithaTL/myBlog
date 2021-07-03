@@ -1,87 +1,92 @@
+var canvas = document.getElementById("myCanvas");
+ctx=canvas.getContext("2d");
+background_image="racing.jpg";
+console.log("background image="+background_image);
+car1_image="racecarjackie.png";
+car1_width=100;
+car1_height=90;
+car1_x=10;
+car1_y=10;
 
-var last_position_of_x, last_position_of_y;
-    canvas = document.getElementById('myCanvas');
-    ctx = canvas.getContext("2d");
-    
-    color = "black";
-    width_of_line = 2;
+car2_image="fastrackV8.png";
+car2_width=100;
+car2_height=90;
+car2_x=10;
+car2_y=110;
 
-    
-canvas.addEventListener("mousedown",my_mousedown);
-function my_mousedown(e)
+function add()
 {
-    color = document.getElementById("color").value;
-    width_of_line = document.getElementById("width_of_line").value;
-    console.log("Color = ", color);
-    console.log("width of line = ", width_of_line);
-    mouseEvent="mouseDown";
+    background_imgTag = new  Image();
+    background_imgTag.onload=uploadBackground;
+    background_imgTag.src = background_image;
+    car1_imgTag = new  Image();
+    car1_imgTag.onload=uploadCar1;
+    car1_imgTag.src = car1_image;
+    car2_imgTag = new  Image();
+    car2_imgTag.onload=uploadCar2;
+    car2_imgTag.src = car2_image;
 }
 
-canvas.addEventListener("mouseup",my_mouseup);
-function my_mouseup(e)
+function uploadBackground()
 {
-    mouseEvent="mouseUp";
+    ctx.drawImage(background_imgTag,0,0,canvas.width,canvas.height);
 }
 
-canvas.addEventListener("mouseLeave",my_mouseLeave);
-function my_mouseLeave(e)
+function uploadCar1()
 {
-    mouseEvent="mouseLeave";
+    ctx.drawImage(car1_imgTag,car1_x,car1_y,car1_width,car1_height);
 }
 
-canvas.addEventListener("mousemove",my_mousemove);
-function my_mousemove(e)
+function uploadCar2()
 {
-    current_position_of_mouse_x = e.clientX - canvas.offsetLeft;
-    current_position_of_mouse_y = e.clientY - canvas.offsetTop;
-    if(mouseEvent == "mouseDown")
-    {
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width_of_line;
-        ctx.moveTo(last_position_of_x, last_position_of_y);
-        ctx.lineTo(current_position_of_mouse_x, current_position_of_mouse_y);
-        ctx.stroke();
-    }
-    last_position_of_x = current_position_of_mouse_x; 
-    last_position_of_y = current_position_of_mouse_y;
+    ctx.drawImage(car2_imgTag,car2_x,car2_y,car2_width,car2_height);
 }
-    canvas.addEventListener("touchstart", my_touchstart);
-    
-    function my_touchstart(e)
+
+window.addEventListener("keydown",my_keydown);
+function my_keydown(e)
+{
+    keyPressed=e.keyCode;
+    console.log(keyPressed);
+    if(keyPressed == '38')
     {
-        console.log("mytouchstart");
-        last_position_of_x=e.touches[0].clientX-canvas.offsetLeft;
-        last_position_of_y=e.touches[0].clientY-canvas.offsetTop;
+        car1_up();
+        console.log("up");
+    }
+    if(keyPressed == '40')
+    {
+        car1_down();
+        console.log("down");
+    }
+    if(keyPressed == '37')
+    {
+        car1_left();
+        console.log("left");
+    }
+    if(keyPressed == '39')
+    {
+        car1_right();
+        console.log("right");
     }
 
-
-    canvas.addEventListener("touchmove", my_touchmove);
-    function my_touchmove(e)
+    if(keyPressed == '87')
     {
-        console.log("my_touchmove");
-         current_position_of_touch_x = e.touches[0].clientX - canvas.offsetLeft;
-         current_position_of_touch_y = e.touches[0].clientY - canvas.offsetTop;
-
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = width_of_line;
-
-        console.log("Last position of x and y coordinates = ");
-        console.log("x = " + last_position_of_x + "y = " + last_position_of_y);
-        ctx.moveTo(last_position_of_x, last_position_of_y);
-
-        console.log("Current position of x and y coordinates = ");
-        console.log("x  = " + current_position_of_touch_x + "y = " + current_position_of_touch_y);
-        ctx.lineTo(current_position_of_touch_x, current_position_of_touch_y);
-        ctx.stroke();
-       
-        last_position_of_x = current_position_of_touch_x; 
-        last_position_of_y = current_position_of_touch_y;
+        car2_up();
+        console.log("up");
     }
-    function clearArea()
+    if(keyPressed == '83')
     {
-        ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
-
+        car2_down();
+        console.log("down");
+    }
+    if(keyPressed == '65')
+    {
+        car2_left();
+        console.log("left");
+    }
+    if(keyPressed == '68')
+    {
+        car2_right();
+        console.log("right");
     }
 
+}
