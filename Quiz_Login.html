@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Guess The Word</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="quizgame_login.css">
+
+		<script src="quizgame_login.js"></script>
+	</head>
+	<body>
+		<center>
+			<h1>Math Quiz Game</h1>
+			<div class="col-lg-6 col-sm-6 col-xs-6 img_math">
+				<img src="mathQ.png">
+			</div>
+			<div class="col-lg-6 col-sm-6 col-xs-6 login">
+				<br>
+				<h2>Login</h2>
+				<div class="col-lg-6 col-sm-6 col-xs-6 loginp1_div">
+					<h3> Player1 </h3>
+					<label> Username : </label>
+					<input type="text" id="name1_input" class="form-control" placeholder="player1">
+					<br>
+				</div>
+				<br>
+				<br>
+				<div class="col-lg-6 col-sm-6 col-xs-6 loginp2_div">
+					<h3> Player2 </h3>
+					<label> Username : </label>
+					<input type="text" id="name2_input" class="form-control" placeholder="player2">
+					<br>
+				</div>
+				<br>
+				<button style="width: 30%" class="btn btn-primary" onclick="addUser()">Login</button>
+			</div>
+		</center>
+
+	</body>
+</html>

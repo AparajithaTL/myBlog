@@ -1,0 +1,32 @@
+body
+{
+    background-color: lightgreen;
+}
+
+.loginp1_div , .loginp2_div
+{
+		background:mediumturquoise;
+		padding: 10px;
+		float: none;
+		border-radius: 15px;
+}
+
+label
+{
+	color: darkmagenta;
+}
+
+h3
+{
+	color:firebrick ;
+}
+
+h1
+{
+	color:orangered;
+}
+
+.img_math
+{
+	background-color: orchid;
+}
